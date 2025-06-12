@@ -20,18 +20,22 @@ interface ContactSubmission {
   createdAt: string;
 }
 
+interface AuthStatus {
+  isAuthenticated: boolean;
+}
+
 export default function Admin() {
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
   // Check authentication status
-  const { data: authStatus, isLoading: authLoading } = useQuery({
+  const { data: authStatus, isLoading: authLoading } = useQuery<AuthStatus>({
     queryKey: ['/api/admin/status'],
     retry: false,
   });
 
   // Fetch contact submissions
-  const { data: submissions, isLoading: submissionsLoading, refetch } = useQuery({
+  const { data: submissions, isLoading: submissionsLoading, refetch } = useQuery<ContactSubmission[]>({
     queryKey: ['/api/contact-submissions'],
     enabled: authStatus?.isAuthenticated,
     retry: false,
@@ -150,7 +154,7 @@ export default function Admin() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Total Leads</p>
-                  <p className="text-2xl font-bold">{submissions?.length || 0}</p>
+                  <p className="text-2xl font-bold">{Array.isArray(submissions) ? submissions.length : 0}</p>
                 </div>
               </div>
             </CardContent>
@@ -165,9 +169,9 @@ export default function Admin() {
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Today's Leads</p>
                   <p className="text-2xl font-bold">
-                    {submissions?.filter(s => 
+                    {Array.isArray(submissions) ? submissions.filter((s: ContactSubmission) => 
                       new Date(s.createdAt).toDateString() === new Date().toDateString()
-                    ).length || 0}
+                    ).length : 0}
                   </p>
                 </div>
               </div>
@@ -183,12 +187,12 @@ export default function Admin() {
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">This Week</p>
                   <p className="text-2xl font-bold">
-                    {submissions?.filter(s => {
+                    {Array.isArray(submissions) ? submissions.filter((s: ContactSubmission) => {
                       const submissionDate = new Date(s.createdAt);
                       const weekAgo = new Date();
                       weekAgo.setDate(weekAgo.getDate() - 7);
                       return submissionDate >= weekAgo;
-                    }).length || 0}
+                    }).length : 0}
                   </p>
                 </div>
               </div>
@@ -204,9 +208,9 @@ export default function Admin() {
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">High Budget</p>
                   <p className="text-2xl font-bold">
-                    {submissions?.filter(s => 
+                    {Array.isArray(submissions) ? submissions.filter((s: ContactSubmission) => 
                       s.budgetRange && !s.budgetRange.includes("1000") && !s.budgetRange.includes("5000")
-                    ).length || 0}
+                    ).length : 0}
                   </p>
                 </div>
               </div>
@@ -230,7 +234,7 @@ export default function Admin() {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
                 <p>Loading submissions...</p>
               </div>
-            ) : submissions && submissions.length > 0 ? (
+            ) : submissions && Array.isArray(submissions) && submissions.length > 0 ? (
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>

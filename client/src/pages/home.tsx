@@ -137,6 +137,7 @@ export default function Home() {
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
