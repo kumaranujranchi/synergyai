@@ -256,7 +256,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-10 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-4 sm:pb-8 lg:pb-10 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
         {/* Interactive Background */}
         <InteractiveBackground />
         
@@ -373,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-8 sm:py-12 lg:py-16 bg-background">
+      <section id="services" className="py-4 sm:py-8 lg:py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -419,7 +419,7 @@ export default function Home() {
       </section>
 
       {/* Three-Way Comparison Section */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-muted/20 to-background">
+      <section className="py-4 sm:py-8 lg:py-12 bg-gradient-to-br from-muted/20 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1382,7 +1382,7 @@ export default function Home() {
       </section>
 
       {/* Quality Assurance */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-background">
+      <section className="py-4 sm:py-8 lg:py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1442,7 +1442,7 @@ export default function Home() {
       </section>
 
       {/* Target Audience */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-muted/30">
+      <section className="py-4 sm:py-8 lg:py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1521,7 +1521,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-8 sm:py-12 lg:py-16 bg-background">
+      <section id="contact" className="py-4 sm:py-8 lg:py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1703,20 +1703,21 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 sm:py-12">
+      <footer className="bg-gray-900 text-white py-6 sm:py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+            {/* Company Info - Full width on mobile, centered */}
+            <div className="lg:col-span-2 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start space-x-2 mb-3 sm:mb-4">
                 <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-8 sm:h-10 w-auto brightness-0 invert" />
                 <div className="flex flex-col">
                   <span className="font-bold text-sm sm:text-lg lg:text-xl leading-tight">Synergy Brand Architect</span>
                   <span className="text-xs text-gray-400">AI-Powered Solutions</span>
                 </div>
               </div>
-              <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 max-w-md">India's First AI-Powered Full Stack IT Solution Provider. Delivering websites, mobile apps, and SaaS solutions in hours, not months.</p>
+              <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 max-w-md mx-auto lg:mx-0">India's First AI-Powered Full Stack IT Solution Provider. Delivering websites, mobile apps, and SaaS solutions in hours, not months.</p>
               
-              <div className="flex space-x-3 sm:space-x-4">
+              <div className="flex justify-center lg:justify-start space-x-3 sm:space-x-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
                   <div className="w-5 h-5 sm:w-6 sm:h-6">📘</div>
                 </a>
@@ -1732,7 +1733,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-span-1">
+            {/* Services - Centered on mobile */}
+            <div className="text-center lg:text-left">
               <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">Services</h3>
               <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
                 <li><a href="#" className="hover:text-white transition-colors">Website Development</a></li>
@@ -1743,7 +1745,8 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="col-span-1">
+            {/* Contact - Centered on mobile */}
+            <div className="text-center lg:text-left">
               <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">Contact</h3>
               <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
                 <li>+91 9525 230232</li>

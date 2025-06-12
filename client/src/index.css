@@ -197,14 +197,23 @@
     padding-right: 1rem;
   }
   
-  /* Consistent section spacing on mobile */
+  /* Consistent section spacing on mobile - reduce excessive gaps */
   section {
     margin-bottom: 0 !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
   }
   
-  /* Remove excessive padding between sections */
-  section + section {
-    border-top: none;
+  /* Override specific section paddings for mobile */
+  section[class*="py-"] {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  /* Hero section needs more top padding for nav */
+  section.relative.min-h-screen {
+    padding-top: 5rem !important;
+    padding-bottom: 1rem !important;
   }
 }
 
