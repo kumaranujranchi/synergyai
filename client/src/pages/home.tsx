@@ -125,7 +125,8 @@ const targetAudiences = [
   { icon: Users, title: "Individuals" },
   { icon: Code, title: "SaaS Founders" },
   { icon: TrendingUp, title: "eCommerce Entrepreneurs" },
-  { icon: Star, title: "Agencies" }
+  { icon: Star, title: "Agencies" },
+  { icon: Settings, title: "Enterprises" }
 ];
 
 export default function Home() {
@@ -1466,7 +1467,7 @@ export default function Home() {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Whether you're a startup or enterprise, we have the right solution for your needs.</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6">
             {targetAudiences.map((audience, index) => (
               <motion.div
                 key={audience.title}
