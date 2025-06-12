@@ -394,11 +394,11 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="mx-2 sm:mx-0"
               >
-                <Card className={`bg-gradient-to-br ${service.gradient} ${service.border} hover:shadow-xl transition-all transform hover:scale-105 h-full`}>
-                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                <Card className={`bg-gradient-to-br ${service.gradient} ${service.border} hover:shadow-xl transition-all transform hover:scale-105 h-full flex flex-col`}>
+                  <CardContent className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
                     <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-3 sm:mb-4" />
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 sm:mb-4">{service.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">{service.description}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed flex-1">{service.description}</p>
                     <div className="mb-3 sm:mb-4">
                       <span className="text-xs sm:text-sm text-muted-foreground">Delivery: </span>
                       <p className="font-bold text-sm sm:text-base lg:text-lg text-primary">{service.delivery}</p>
@@ -407,7 +407,10 @@ export default function Home() {
                       <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-600">{service.price}</span>
                       <span className="text-sm sm:text-base text-muted-foreground"> onwards</span>
                     </div>
-                    <Button className="w-full text-sm sm:text-base">
+                    <Button 
+                      className="w-full text-sm sm:text-base mt-auto" 
+                      onClick={scrollToContact}
+                    >
                       Get Started
                     </Button>
                   </CardContent>
@@ -562,7 +565,10 @@ export default function Home() {
                   </ul>
                   
                   <div className="mt-8">
-                    <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white">
+                    <Button 
+                      className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white"
+                      onClick={scrollToContact}
+                    >
                       <Rocket className="mr-2 h-4 w-4" />
                       Discover the AI Advantage
                     </Button>
@@ -632,7 +638,10 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <Button className="w-full mt-6 bg-gradient-to-r from-primary to-blue-600">
+                <Button 
+                  className="w-full mt-6 bg-gradient-to-r from-primary to-blue-600"
+                  onClick={scrollToContact}
+                >
                   <Brain className="mr-2 h-4 w-4" />
                   Get Your AI Brand Analysis Now
                 </Button>
@@ -745,7 +754,10 @@ export default function Home() {
                     <Input className="mt-2" placeholder="3" />
                   </div>
                   
-                  <Button className="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-lg py-3">
+                  <Button 
+                    className="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-lg py-3"
+                    onClick={scrollToContact}
+                  >
                     <TrendingUp className="mr-2 h-5 w-5" />
                     Calculate My AI-Powered ROI
                   </Button>
