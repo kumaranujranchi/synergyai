@@ -210,9 +210,9 @@
     padding-bottom: 1rem !important;
   }
   
-  /* Hero section needs more top padding for nav */
+  /* Hero section needs minimal top padding for nav */
   section.relative.min-h-screen {
-    padding-top: 5rem !important;
+    padding-top: 4rem !important;
     padding-bottom: 1rem !important;
   }
 }
