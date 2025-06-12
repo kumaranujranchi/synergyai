@@ -256,7 +256,7 @@ export default function Home() {
         </div>
       </nav>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center sm:pt-20 sm:pb-4 lg:pb-6 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden ml-[0px] mr-[0px] pl-[0px] pr-[0px] pt-[46px] pb-[46px] mt-[-72px] mb-[-72px]">
+      <section className="relative min-h-screen flex items-center justify-center sm:pt-20 sm:pb-4 lg:pb-6 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden ml-[0px] mr-[0px] pl-[0px] pr-[0px] pt-[46px] pb-[46px] mt-[4px] mb-[4px]">
         {/* Interactive Background */}
         <InteractiveBackground />
         
