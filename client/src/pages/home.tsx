@@ -32,7 +32,8 @@ import {
   Award,
   Globe,
   Mail,
-  MessageCircle
+  MessageCircle,
+  Calculator
 } from "lucide-react";
 
 interface ContactFormData {
@@ -261,43 +262,49 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-              India's First{" "}
-              <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                AI-Driven
-              </span>{" "}
-              IT Solutions Company
-            </h1>
+            <div className="mb-6">
+              <p className="text-lg md:text-xl text-primary font-semibold mb-2 animate-pulse-slow">
+                Beyond Templates, Beyond Drag-and-Drop
+              </p>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                Welcome to{" "}
+                <span className="bg-gradient-to-r from-primary via-blue-600 to-cyan-500 bg-clip-text text-transparent animate-glow">
+                  AI-Architected
+                </span>{" "}
+                Digital Experiences
+              </h1>
+            </div>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed">
-              Websites, Mobile Apps, CRM & SaaS Solutions — Delivered in{" "}
-              <span className="font-bold text-primary">Hours, Not Months</span>
+              While Others Build Websites, We{" "}
+              <span className="font-bold text-primary">Architect Digital Ecosystems</span>{" "}
+              with AI Intelligence
             </p>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-12 font-medium">
-              <span className="text-blue-600">AI Builds It.</span>{" "}
-              <span className="text-primary">Humans Perfect It.</span>{" "}
-              <span className="text-foreground">You Scale It.</span>
+              <span className="text-blue-600 animate-pulse">AI Analyzes.</span>{" "}
+              <span className="text-primary animate-pulse" style={{ animationDelay: '1s' }}>Humans Create.</span>{" "}
+              <span className="text-foreground animate-pulse" style={{ animationDelay: '2s' }}>You Dominate.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Button 
                 onClick={scrollToContact}
                 size="lg" 
-                className="text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                className="text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary"
               >
-                <Rocket className="mr-2 h-5 w-5" />
-                Get Instant Quote
+                <Brain className="mr-2 h-5 w-5" />
+                Experience AI-Powered Brand Architecture
               </Button>
               
               <Button 
                 onClick={handleCall}
                 variant="outline" 
                 size="lg" 
-                className="text-lg px-8 py-4 transform hover:scale-105 transition-all"
+                className="text-lg px-8 py-4 transform hover:scale-105 transition-all border-primary hover:bg-primary/10"
               >
-                <Phone className="mr-2 h-5 w-5" />
-                Talk to Us Now
+                <Zap className="mr-2 h-5 w-5" />
+                See How AI Transforms Your Digital Presence
               </Button>
             </div>
 
@@ -380,6 +387,919 @@ export default function Home() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Three-Way Comparison Section */}
+      <section className="py-20 bg-gradient-to-br from-muted/20 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Why Choose <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Over Traditional</span> Methods?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Compare and discover the revolutionary advantage of AI-powered development</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Traditional Method */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="h-full bg-red-50 border-red-200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
+                <CardContent className="p-8">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Clock className="w-8 h-8 text-red-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-red-700 mb-2">Traditional Method</h3>
+                    <p className="text-red-600 text-sm">Outdated & Slow</p>
+                  </div>
+                  
+                  <ul className="space-y-4">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700">Manual coding and development</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700">Weeks to months for completion</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700">Limited scalability</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700">High ongoing maintenance costs</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700">Generic solutions</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Drag-and-Drop Builders */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="h-full bg-yellow-50 border-yellow-200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-yellow-500"></div>
+                <CardContent className="p-8">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Settings className="w-8 h-8 text-yellow-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-yellow-700 mb-2">Drag-and-Drop Builders</h3>
+                    <p className="text-yellow-600 text-sm">Limited & Generic</p>
+                  </div>
+                  
+                  <ul className="space-y-4">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-yellow-700">Template-based limitations</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-yellow-700">Cookie-cutter designs</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-yellow-700">No intelligent optimization</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-yellow-700">Poor performance metrics</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-yellow-700">DIY approach with no strategy</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* AI-Powered Solutions */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="h-full bg-gradient-to-br from-green-50 to-blue-50 border-green-200 relative overflow-hidden animate-glow">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-blue-500"></div>
+                <CardContent className="p-8">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-green-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Brain className="w-8 h-8 text-green-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-blue-700 bg-clip-text text-transparent mb-2">AI-Powered Solutions</h3>
+                    <p className="text-green-600 text-sm font-semibold">Revolutionary & Smart</p>
+                  </div>
+                  
+                  <ul className="space-y-4">
+                    <li className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 font-medium">Intelligent design automation</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 font-medium">Data-driven optimization</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 font-medium">Continuous learning and improvement</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 font-medium">Predictive analytics integration</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 font-medium">Strategic brand architecture</span>
+                    </li>
+                  </ul>
+                  
+                  <div className="mt-8">
+                    <Button className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white">
+                      <Rocket className="mr-2 h-4 w-4" />
+                      Discover the AI Advantage
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI in Action Interactive Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Watch <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Transform</span> Your Brand in Real-Time
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Experience the power of AI-driven brand transformation</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="bg-gradient-to-br from-primary/5 to-blue-600/5 border-primary/20 p-8">
+                <h3 className="text-2xl font-bold text-foreground mb-6">Live AI Analysis Dashboard</h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-background/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="font-medium">Performance Optimization</span>
+                    </div>
+                    <span className="text-green-600 font-bold">+247%</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-4 bg-background/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                      <span className="font-medium">User Engagement</span>
+                    </div>
+                    <span className="text-blue-600 font-bold">+189%</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-4 bg-background/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                      <span className="font-medium">Conversion Rate</span>
+                    </div>
+                    <span className="text-purple-600 font-bold">+156%</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-4 bg-background/50 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
+                      <span className="font-medium">Load Speed</span>
+                    </div>
+                    <span className="text-orange-600 font-bold">+312%</span>
+                  </div>
+                </div>
+                
+                <Button className="w-full mt-6 bg-gradient-to-r from-primary to-blue-600">
+                  <Brain className="mr-2 h-4 w-4" />
+                  Get Your AI Brand Analysis Now
+                </Button>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <Card className="p-6 hover:shadow-lg transition-all transform hover:scale-105">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">Before/After Transformation</h4>
+                    <p className="text-muted-foreground text-sm">See instant AI-powered improvements</p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-all transform hover:scale-105">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg flex items-center justify-center">
+                    <Target className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">Competitor Analysis</h4>
+                    <p className="text-muted-foreground text-sm">Real-time AI competitor insights</p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-all transform hover:scale-105">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">Live Metrics Dashboard</h4>
+                    <p className="text-muted-foreground text-sm">Performance tracking in real-time</p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-all transform hover:scale-105">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-red-100 rounded-lg flex items-center justify-center">
+                    <Brain className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">AI Strategy Preview</h4>
+                    <p className="text-muted-foreground text-sm">Generated brand strategy insights</p>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-blue-600/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Calculate Your <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Investment Return</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">See how AI-powered solutions can transform your business metrics and ROI</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="p-8 bg-background border-primary/20">
+                <h3 className="text-2xl font-bold text-foreground mb-6">AI ROI Calculator</h3>
+                
+                <div className="space-y-6">
+                  <div>
+                    <Label className="text-base font-medium">Current Monthly Marketing Spend</Label>
+                    <div className="relative mt-2">
+                      <span className="absolute left-3 top-3 text-muted-foreground">₹</span>
+                      <Input className="pl-8" placeholder="50,000" />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <Label className="text-base font-medium">Expected Growth Target (%)</Label>
+                    <Input className="mt-2" placeholder="200" />
+                  </div>
+                  
+                  <div>
+                    <Label className="text-base font-medium">Current Team Size</Label>
+                    <Input className="mt-2" placeholder="5" />
+                  </div>
+                  
+                  <div>
+                    <Label className="text-base font-medium">Project Timeline (months)</Label>
+                    <Input className="mt-2" placeholder="3" />
+                  </div>
+                  
+                  <Button className="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-lg py-3">
+                    <TrendingUp className="mr-2 h-5 w-5" />
+                    Calculate My AI-Powered ROI
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
+                <h4 className="text-xl font-bold text-green-800 mb-4">Projected Savings with AI</h4>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-green-700">Time Reduction</span>
+                    <span className="text-2xl font-bold text-green-600">75%</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-green-700">Cost Savings</span>
+                    <span className="text-2xl font-bold text-green-600">₹2,40,000</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-green-700">Revenue Increase</span>
+                    <span className="text-2xl font-bold text-green-600">+180%</span>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+                <h4 className="text-xl font-bold text-blue-800 mb-4">Performance Improvements</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-blue-700">Automated optimization processes</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-blue-700">Real-time performance monitoring</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-blue-700">Predictive analytics insights</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle className="w-5 h-5 text-blue-600" />
+                    <span className="text-blue-700">Scalable infrastructure</span>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+                <h4 className="text-xl font-bold text-purple-800 mb-4">Competitive Advantage</h4>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-600 mb-2">10x</div>
+                  <p className="text-purple-700">Faster than traditional methods</p>
+                  <div className="text-3xl font-bold text-purple-600 mb-2 mt-4">95%</div>
+                  <p className="text-purple-700">Client satisfaction rate</p>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Success Stories Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Success Stories</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Real transformations, measurable results</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="p-8 h-full hover:shadow-xl transition-all transform hover:scale-105 bg-gradient-to-br from-green-50 to-blue-50 border-green-200">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">E-commerce Platform</h3>
+                  <p className="text-muted-foreground text-sm">Fashion Retailer</p>
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Implementation</span>
+                    <span className="font-bold text-green-600">2 Days</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Revenue Growth</span>
+                    <span className="font-bold text-green-600">+340%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Cost Reduction</span>
+                    <span className="font-bold text-green-600">-65%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">User Engagement</span>
+                    <span className="font-bold text-green-600">+280%</span>
+                  </div>
+                </div>
+                
+                <blockquote className="text-sm text-muted-foreground italic border-l-4 border-green-500 pl-4">
+                  "AI transformed our entire business model. We're now processing 10x more orders with the same team."
+                </blockquote>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="p-8 h-full hover:shadow-xl transition-all transform hover:scale-105 bg-gradient-to-br from-blue-50 to-purple-50 border-blue-200">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">SaaS Platform</h3>
+                  <p className="text-muted-foreground text-sm">B2B Software</p>
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Launch Time</span>
+                    <span className="font-bold text-blue-600">6 Hours</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">User Acquisition</span>
+                    <span className="font-bold text-blue-600">+420%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Conversion Rate</span>
+                    <span className="font-bold text-blue-600">+190%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Performance</span>
+                    <span className="font-bold text-blue-600">+380%</span>
+                  </div>
+                </div>
+                
+                <blockquote className="text-sm text-muted-foreground italic border-l-4 border-blue-500 pl-4">
+                  "We launched in hours what would have taken months. AI gave us the competitive edge we needed."
+                </blockquote>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="p-8 h-full hover:shadow-xl transition-all transform hover:scale-105 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Healthcare App</h3>
+                  <p className="text-muted-foreground text-sm">Medical Technology</p>
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Development</span>
+                    <span className="font-bold text-purple-600">4 Hours</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Patient Satisfaction</span>
+                    <span className="font-bold text-purple-600">+290%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Efficiency Gain</span>
+                    <span className="font-bold text-purple-600">+250%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Error Reduction</span>
+                    <span className="font-bold text-purple-600">-85%</span>
+                  </div>
+                </div>
+                
+                <blockquote className="text-sm text-muted-foreground italic border-l-4 border-purple-500 pl-4">
+                  "AI helped us create a life-saving platform that processes patient data with unprecedented accuracy."
+                </blockquote>
+              </Card>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Button size="lg" className="bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary px-12 py-4 text-lg">
+              <Star className="mr-2 h-5 w-5" />
+              Join Our Success Stories
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Human-AI Collaboration Section */}
+      <section className="py-20 bg-gradient-to-br from-muted/20 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              The Perfect Synergy: <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Intelligence + Human Creativity</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Where artificial intelligence meets human ingenuity for unparalleled results</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-8"
+            >
+              <Card className="p-6 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 transform hover:scale-105 transition-all">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Brain className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-blue-800 mb-2">AI Handles</h3>
+                    <ul className="space-y-2 text-blue-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-blue-600" />
+                        <span>Data analysis and optimization</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-blue-600" />
+                        <span>Performance monitoring</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-blue-600" />
+                        <span>Automated testing and deployment</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-blue-600" />
+                        <span>Predictive analytics</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-gradient-to-r from-green-50 to-blue-50 border-green-200 transform hover:scale-105 transition-all">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Users className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-green-800 mb-2">Humans Provide</h3>
+                    <ul className="space-y-2 text-green-700">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Creative direction and strategy</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Brand vision and storytelling</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Quality assurance and refinement</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Strategic business insights</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="p-8 bg-gradient-to-br from-primary/5 to-blue-600/5 border-primary/20 text-center">
+                <div className="mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-r from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <div className="flex items-center space-x-2">
+                      <Brain className="w-8 h-8 text-white" />
+                      <span className="text-white font-bold text-xl">+</span>
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-3xl font-bold text-foreground mb-4">Superior Results</h3>
+                  <p className="text-lg text-muted-foreground mb-8">Combined approach delivers outcomes that neither AI nor humans could achieve alone</p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-6 mb-8">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary mb-2">10x</div>
+                    <p className="text-sm text-muted-foreground">Faster Development</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-600 mb-2">99%</div>
+                    <p className="text-sm text-muted-foreground">Accuracy Rate</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
+                    <p className="text-sm text-muted-foreground">Continuous Learning</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-purple-600 mb-2">∞</div>
+                    <p className="text-sm text-muted-foreground">Scalability</p>
+                  </div>
+                </div>
+                
+                <Button className="w-full bg-gradient-to-r from-primary to-blue-600 text-lg py-3">
+                  <Zap className="mr-2 h-5 w-5" />
+                  Experience Human-AI Collaboration
+                </Button>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Urgency and Scarcity Section */}
+      <section className="py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
+              <Clock className="w-4 h-4 mr-2" />
+              Limited Time Offer
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Limited <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">AI Onboarding Spots</span> Available
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Join the AI revolution before your competitors do. Exclusive opportunities for early adopters.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="p-8 text-center bg-gradient-to-br from-red-100 to-orange-100 border-red-200 relative overflow-hidden">
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-red-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-red-800 mb-2">Monthly Capacity</h3>
+                  <div className="text-4xl font-bold text-red-600 mb-2">15</div>
+                  <p className="text-red-700">New clients only</p>
+                  <div className="mt-4 bg-red-200 rounded-full h-2">
+                    <div className="bg-red-500 h-2 rounded-full animate-pulse" style={{ width: '73%' }}></div>
+                  </div>
+                  <p className="text-xs text-red-600 mt-2">11 spots filled • 4 remaining</p>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="p-8 text-center bg-gradient-to-br from-orange-100 to-yellow-100 border-orange-200 relative overflow-hidden">
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-orange-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-orange-800 mb-2">Early Adopter Bonus</h3>
+                  <div className="text-4xl font-bold text-orange-600 mb-2">50%</div>
+                  <p className="text-orange-700">Discount on setup</p>
+                  <div className="mt-4 bg-orange-200 rounded-full h-2">
+                    <div className="bg-orange-500 h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
+                  </div>
+                  <p className="text-xs text-orange-600 mt-2">Valid for next 48 hours</p>
+                </div>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="p-8 text-center bg-gradient-to-br from-yellow-100 to-green-100 border-yellow-200 relative overflow-hidden">
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-yellow-800 mb-2">Exclusive Access</h3>
+                  <div className="text-4xl font-bold text-yellow-600 mb-2">24h</div>
+                  <p className="text-yellow-700">Priority support</p>
+                  <div className="mt-4 bg-yellow-200 rounded-full h-2">
+                    <div className="bg-yellow-500 h-2 rounded-full animate-pulse" style={{ width: '90%' }}></div>
+                  </div>
+                  <p className="text-xs text-yellow-600 mt-2">Lifetime benefit</p>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center"
+          >
+            <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-8 rounded-2xl max-w-4xl mx-auto mb-8">
+              <h3 className="text-3xl font-bold mb-4">🚨 Act Fast - Limited Time Only!</h3>
+              <p className="text-xl mb-6">Join 500+ forward-thinking brands who've already secured their AI advantage</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100 text-lg px-8 py-4 font-bold">
+                  <Rocket className="mr-2 h-5 w-5" />
+                  Secure My AI Consultation Spot
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-4">
+                  <Clock className="mr-2 h-5 w-5" />
+                  View Remaining Spots
+                </Button>
+              </div>
+            </div>
+            
+            <p className="text-muted-foreground text-sm">
+              ⚡ Get ahead with AI - Limited time offer expires in <span className="font-bold text-red-600">47 hours</span>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Future-Proof Your Business Section */}
+      <section className="py-20 bg-gradient-to-br from-background to-primary/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">Future-Proof</span> Your Business
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Stay ahead of the curve with scalable AI solutions designed for tomorrow's challenges</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-8"
+            >
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Emerging AI Trends</h3>
+                    <p className="text-muted-foreground">Stay ahead with cutting-edge AI technologies and industry innovations that shape the future of digital experiences.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-100 to-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Target className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Scalability Advantages</h3>
+                    <p className="text-muted-foreground">Built-in scalability ensures your AI solutions grow seamlessly with your business without performance compromises.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Brain className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Adaptive Technology</h3>
+                    <p className="text-muted-foreground">Self-improving AI systems that learn and adapt to changing market conditions and user behaviors automatically.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-100 to-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Rocket className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Long-term Growth Potential</h3>
+                    <p className="text-muted-foreground">Invest once in AI infrastructure that delivers compounding returns and competitive advantages for years to come.</p>
+                  </div>
+                </div>
+              </div>
+
+              <Button size="lg" className="bg-gradient-to-r from-primary to-blue-600 text-lg px-8 py-4">
+                <Shield className="mr-2 h-5 w-5" />
+                Future-Proof My Business with AI
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <Card className="p-8 bg-gradient-to-br from-primary/10 to-blue-600/10 border-primary/20">
+                <h3 className="text-2xl font-bold text-foreground mb-8">AI Evolution Timeline</h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-foreground">Phase 1: Foundation (Month 1)</div>
+                      <div className="text-sm text-muted-foreground">AI system deployment and initial optimization</div>
+                    </div>
+                    <div className="text-green-600 font-bold">✓ Complete</div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-foreground">Phase 2: Learning (Month 2-3)</div>
+                      <div className="text-sm text-muted-foreground">Data collection and pattern recognition</div>
+                    </div>
+                    <div className="text-blue-600 font-bold">In Progress</div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-4 h-4 bg-purple-300 rounded-full"></div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-foreground">Phase 3: Optimization (Month 4-6)</div>
+                      <div className="text-sm text-muted-foreground">Advanced analytics and performance tuning</div>
+                    </div>
+                    <div className="text-purple-600 font-bold">Upcoming</div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-4 h-4 bg-orange-300 rounded-full"></div>
+                    <div className="flex-1">
+                      <div className="font-semibold text-foreground">Phase 4: Scale (Month 6+)</div>
+                      <div className="text-sm text-muted-foreground">Enterprise-level AI capabilities</div>
+                    </div>
+                    <div className="text-orange-600 font-bold">Future</div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 p-4 bg-gradient-to-r from-primary/20 to-blue-600/20 rounded-lg">
+                  <h4 className="font-bold text-foreground mb-2">Projected ROI by Year 2</h4>
+                  <div className="text-3xl font-bold text-primary">+450%</div>
+                  <p className="text-sm text-muted-foreground">Based on current client performance data</p>
+                </div>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
