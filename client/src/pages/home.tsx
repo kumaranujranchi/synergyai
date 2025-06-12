@@ -202,8 +202,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-10 w-auto" />
-              <span className="font-bold text-xl text-foreground">Synergy Brand Architect</span>
+              <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-8 md:h-10 w-auto" />
+              <span className="font-bold text-lg md:text-xl text-foreground hidden sm:block">Synergy Brand Architect</span>
+              <span className="font-bold text-sm text-foreground sm:hidden">Synergy</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -222,23 +223,43 @@ export default function Home() {
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <div className="space-y-1">
-                <div className="w-5 h-0.5 bg-foreground"></div>
-                <div className="w-5 h-0.5 bg-foreground"></div>
-                <div className="w-5 h-0.5 bg-foreground"></div>
+              <div className={`space-y-1 transition-all ${isMobileMenuOpen ? 'rotate-45' : ''}`}>
+                <div className={`w-5 h-0.5 bg-foreground transition-all ${isMobileMenuOpen ? 'rotate-90 translate-y-1.5' : ''}`}></div>
+                <div className={`w-5 h-0.5 bg-foreground transition-all ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
+                <div className={`w-5 h-0.5 bg-foreground transition-all ${isMobileMenuOpen ? '-rotate-90 -translate-y-1.5' : ''}`}></div>
               </div>
             </Button>
           </div>
+          
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t bg-background/95 backdrop-blur-md"
+            >
+              <div className="px-4 py-6 space-y-4">
+                <a href="#services" className="block text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
+                <a href="#why-us" className="block text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>Why Us</a>
+                <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
+                <a href="#contact" className="block text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+                <Button onClick={() => { scrollToContact(); setIsMobileMenuOpen(false); }} className="w-full font-medium mt-4">
+                  Get Quote
+                </Button>
+              </div>
+            </motion.div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-10 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
         {/* Interactive Background */}
         <InteractiveBackground />
         
-        {/* Animated geometric shapes */}
-        <div className="absolute inset-0 pointer-events-none">
+        {/* Animated geometric shapes - hidden on mobile for performance */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
           <div className="absolute top-20 left-10 animate-pulse opacity-30">
             <Brain className="w-16 h-16 text-primary" />
           </div>
@@ -255,91 +276,94 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/6 w-10 h-10 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto space-y-6 md:space-y-8"
           >
-            <div className="mb-6">
-              <p className="text-lg md:text-xl text-primary font-semibold mb-2 animate-pulse-slow">
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary font-semibold animate-pulse-slow">
                 Beyond Templates, Beyond Drag-and-Drop
               </p>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
                 Welcome to{" "}
-                <span className="bg-gradient-to-r from-primary via-blue-600 to-cyan-500 bg-clip-text text-transparent animate-glow">
+                <span className="bg-gradient-to-r from-primary via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                   AI-Architected
                 </span>{" "}
+                <br className="hidden sm:block" />
                 Digital Experiences
               </h1>
             </div>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               While Others Build Websites, We{" "}
               <span className="font-bold text-primary">Architect Digital Ecosystems</span>{" "}
               with AI Intelligence
             </p>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-12 font-medium">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground font-medium">
               <span className="text-blue-600 animate-pulse">AI Analyzes.</span>{" "}
               <span className="text-primary animate-pulse" style={{ animationDelay: '1s' }}>Humans Create.</span>{" "}
               <span className="text-foreground animate-pulse" style={{ animationDelay: '2s' }}>You Dominate.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Button 
                 onClick={scrollToContact}
                 size="lg" 
-                className="text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary"
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-6 md:px-8 py-3 md:py-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary"
               >
-                <Brain className="mr-2 h-5 w-5" />
-                Experience AI-Powered Brand Architecture
+                <Brain className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                <span className="hidden sm:inline">Experience AI-Powered Brand Architecture</span>
+                <span className="sm:hidden">Get AI-Powered Quote</span>
               </Button>
               
               <Button 
                 onClick={handleCall}
                 variant="outline" 
                 size="lg" 
-                className="text-lg px-8 py-4 transform hover:scale-105 transition-all border-primary hover:bg-primary/10"
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-6 md:px-8 py-3 md:py-4 transform hover:scale-105 transition-all border-primary hover:bg-primary/10"
               >
-                <Zap className="mr-2 h-5 w-5" />
-                See How AI Transforms Your Digital Presence
+                <Zap className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                <span className="hidden sm:inline">See How AI Transforms Your Digital Presence</span>
+                <span className="sm:hidden">See AI in Action</span>
               </Button>
             </div>
 
-            <Card className="backdrop-blur-md bg-background/75 max-w-5xl mx-auto border border-primary/20 animate-glow">
-              <CardContent className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm">
-                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
-                    <Zap className="h-4 w-4 text-yellow-500 group-hover:animate-pulse" />
+            <Card className="backdrop-blur-md bg-background/75 max-w-5xl mx-auto border border-primary/20 mt-8">
+              <CardContent className="p-4 sm:p-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-xs sm:text-sm">
+                  <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
+                    <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-500 group-hover:animate-pulse flex-shrink-0" />
                     <span className="font-medium">2 Hour Delivery</span>
                   </div>
-                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
-                    <DollarSign className="h-4 w-4 text-green-500 group-hover:animate-pulse" />
+                  <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
+                    <DollarSign className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 group-hover:animate-pulse flex-shrink-0" />
                     <span className="font-medium">Lowest Pricing</span>
                   </div>
-                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
-                    <Shield className="h-4 w-4 text-blue-500 group-hover:animate-pulse" />
+                  <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
+                    <Shield className="h-3 w-3 sm:h-4 sm:w-4 text-blue-500 group-hover:animate-pulse flex-shrink-0" />
                     <span className="font-medium">Bug-Free Code</span>
                   </div>
-                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
-                    <CheckCircle className="h-4 w-4 text-purple-500 group-hover:animate-pulse" />
+                  <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
+                    <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-purple-500 group-hover:animate-pulse flex-shrink-0" />
                     <span className="font-medium">Human Verified</span>
                   </div>
-                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
-                    <RotateCcw className="h-4 w-4 text-cyan-500 group-hover:animate-pulse" />
+                  <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
+                    <RotateCcw className="h-3 w-3 sm:h-4 sm:w-4 text-cyan-500 group-hover:animate-pulse flex-shrink-0" />
                     <span className="font-medium">Free CI/CD</span>
                   </div>
-                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
-                    <Award className="h-4 w-4 text-orange-500 group-hover:animate-pulse" />
+                  <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
+                    <Award className="h-3 w-3 sm:h-4 sm:w-4 text-orange-500 group-hover:animate-pulse flex-shrink-0" />
                     <span className="font-medium">Transparent</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <p className="text-lg text-muted-foreground mt-8 italic font-medium">
+            <p className="text-base sm:text-lg text-muted-foreground mt-6 sm:mt-8 italic font-medium px-4 sm:px-0">
               "Sun ke aaya na maza — Ye hai AI ka kamal!" 🚀
             </p>
           </motion.div>
@@ -347,40 +371,41 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-background">
+      <section id="services" className="py-12 sm:py-16 lg:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Services We Offer</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">From simple landing pages to complex enterprise solutions, powered by AI and perfected by experts.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-4 sm:px-0">Services We Offer</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">From simple landing pages to complex enterprise solutions, powered by AI and perfected by experts.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="mx-2 sm:mx-0"
               >
                 <Card className={`bg-gradient-to-br ${service.gradient} ${service.border} hover:shadow-xl transition-all transform hover:scale-105 h-full`}>
-                  <CardContent className="p-8">
-                    <service.icon className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{service.title}</h3>
-                    <p className="text-muted-foreground mb-4">{service.description}</p>
-                    <div className="mb-4">
-                      <span className="text-sm text-muted-foreground">Delivery: </span>
-                      <p className="font-bold text-lg text-primary">{service.delivery}</p>
+                  <CardContent className="p-4 sm:p-6 lg:p-8">
+                    <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-primary mb-3 sm:mb-4" />
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 sm:mb-4">{service.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">{service.description}</p>
+                    <div className="mb-3 sm:mb-4">
+                      <span className="text-xs sm:text-sm text-muted-foreground">Delivery: </span>
+                      <p className="font-bold text-sm sm:text-base lg:text-lg text-primary">{service.delivery}</p>
                     </div>
-                    <div className="mb-6">
-                      <span className="text-3xl font-bold text-green-600">{service.price}</span>
-                      <span className="text-muted-foreground"> onwards</span>
+                    <div className="mb-4 sm:mb-6">
+                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-600">{service.price}</span>
+                      <span className="text-sm sm:text-base text-muted-foreground"> onwards</span>
                     </div>
-                    <Button className="w-full">
+                    <Button className="w-full text-sm sm:text-base">
                       Get Started
                     </Button>
                   </CardContent>
@@ -392,58 +417,59 @@ export default function Home() {
       </section>
 
       {/* Three-Way Comparison Section */}
-      <section className="py-20 bg-gradient-to-br from-muted/20 to-background">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-muted/20 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-4 sm:px-0 leading-tight">
               Why Choose <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Over Traditional</span> Methods?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Compare and discover the revolutionary advantage of AI-powered development</p>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">Compare and discover the revolutionary advantage of AI-powered development</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Traditional Method */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
+              className="mx-2 sm:mx-0"
             >
               <Card className="h-full bg-red-50 border-red-200 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Clock className="w-8 h-8 text-red-600" />
+                <CardContent className="p-4 sm:p-6 lg:p-8">
+                  <div className="text-center mb-4 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                      <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-red-700 mb-2">Traditional Method</h3>
-                    <p className="text-red-600 text-sm">Outdated & Slow</p>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-red-700 mb-2">Traditional Method</h3>
+                    <p className="text-red-600 text-xs sm:text-sm">Outdated & Slow</p>
                   </div>
                   
-                  <ul className="space-y-4">
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700">Manual coding and development</span>
+                  <ul className="space-y-3 sm:space-y-4">
+                    <li className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700 text-sm sm:text-base">Manual coding and development</span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700">Weeks to months for completion</span>
+                    <li className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700 text-sm sm:text-base">Weeks to months for completion</span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700">Limited scalability</span>
+                    <li className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700 text-sm sm:text-base">Limited scalability</span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700">High ongoing maintenance costs</span>
+                    <li className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700 text-sm sm:text-base">High ongoing maintenance costs</span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700">Generic solutions</span>
+                    <li className="flex items-start space-x-2 sm:space-x-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                      <span className="text-red-700 text-sm sm:text-base">Generic solutions</span>
                     </li>
                   </ul>
                 </CardContent>
