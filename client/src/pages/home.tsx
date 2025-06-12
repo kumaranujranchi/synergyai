@@ -255,9 +255,8 @@ export default function Home() {
           )}
         </div>
       </nav>
-
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-2 sm:pb-4 lg:pb-6 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center sm:pt-20 sm:pb-4 lg:pb-6 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden pt-[0px] pb-[0px] ml-[0px] mr-[0px] mt-[-104px] mb-[-104px] pl-[0px] pr-[0px]">
         {/* Interactive Background */}
         <InteractiveBackground />
         
@@ -372,7 +371,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Services Section */}
       <section id="services" className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -421,166 +419,164 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Three-Way Comparison Section */}
-<section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-muted/20 to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-4 sm:px-0 leading-tight">
-              Why Choose <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Over Traditional</span> Methods?
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">Compare and discover the revolutionary advantage of AI-powered development</p>
-          </motion.div>
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-muted/20 to-background">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-12 sm:mb-16"
+                >
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-4 sm:px-0 leading-tight">
+                    Why Choose <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">AI Over Traditional</span> Methods?
+                  </h2>
+                  <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">Compare and discover the revolutionary advantage of AI-powered development</p>
+                </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            {/* Traditional Method */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mx-2 sm:mx-0"
-            >
-              <Card className="h-full bg-red-50 border-red-200 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
-                <CardContent className="p-4 sm:p-6 lg:p-8">
-                  <div className="text-center mb-4 sm:mb-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                      <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-red-700 mb-2">Traditional Method</h3>
-                    <p className="text-red-600 text-xs sm:text-sm">Outdated & Slow</p>
-                  </div>
-                  
-                  <ul className="space-y-3 sm:space-y-4">
-                    <li className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700 text-sm sm:text-base">Manual coding and development</span>
-                    </li>
-                    <li className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700 text-sm sm:text-base">Weeks to months for completion</span>
-                    </li>
-                    <li className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700 text-sm sm:text-base">Limited scalability</span>
-                    </li>
-                    <li className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700 text-sm sm:text-base">High ongoing maintenance costs</span>
-                    </li>
-                    <li className="flex items-start space-x-2 sm:space-x-3">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
-                      <span className="text-red-700 text-sm sm:text-base">Generic solutions</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                  {/* Traditional Method */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="mx-2 sm:mx-0"
+                  >
+                    <Card className="h-full bg-red-50 border-red-200 relative overflow-hidden">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
+                      <CardContent className="p-4 sm:p-6 lg:p-8">
+                        <div className="text-center mb-4 sm:mb-6">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-red-600" />
+                          </div>
+                          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-red-700 mb-2">Traditional Method</h3>
+                          <p className="text-red-600 text-xs sm:text-sm">Outdated & Slow</p>
+                        </div>
+                        
+                        <ul className="space-y-3 sm:space-y-4">
+                          <li className="flex items-start space-x-2 sm:space-x-3">
+                            <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                            <span className="text-red-700 text-sm sm:text-base">Manual coding and development</span>
+                          </li>
+                          <li className="flex items-start space-x-2 sm:space-x-3">
+                            <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                            <span className="text-red-700 text-sm sm:text-base">Weeks to months for completion</span>
+                          </li>
+                          <li className="flex items-start space-x-2 sm:space-x-3">
+                            <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                            <span className="text-red-700 text-sm sm:text-base">Limited scalability</span>
+                          </li>
+                          <li className="flex items-start space-x-2 sm:space-x-3">
+                            <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                            <span className="text-red-700 text-sm sm:text-base">High ongoing maintenance costs</span>
+                          </li>
+                          <li className="flex items-start space-x-2 sm:space-x-3">
+                            <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                            <span className="text-red-700 text-sm sm:text-base">Generic solutions</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
 
-            {/* Drag-and-Drop Builders */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="h-full bg-yellow-50 border-yellow-200 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-yellow-500"></div>
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Settings className="w-8 h-8 text-yellow-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-yellow-700 mb-2">Drag-and-Drop Builders</h3>
-                    <p className="text-yellow-600 text-sm">Limited & Generic</p>
-                  </div>
-                  
-                  <ul className="space-y-4">
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-yellow-700">Template-based limitations</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-yellow-700">Cookie-cutter designs</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-yellow-700">No intelligent optimization</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-yellow-700">Poor performance metrics</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-yellow-700">DIY approach with no strategy</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  {/* Drag-and-Drop Builders */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <Card className="h-full bg-yellow-50 border-yellow-200 relative overflow-hidden">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-yellow-500"></div>
+                      <CardContent className="p-8">
+                        <div className="text-center mb-6">
+                          <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Settings className="w-8 h-8 text-yellow-600" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-yellow-700 mb-2">Drag-and-Drop Builders</h3>
+                          <p className="text-yellow-600 text-sm">Limited & Generic</p>
+                        </div>
+                        
+                        <ul className="space-y-4">
+                          <li className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-yellow-700">Template-based limitations</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-yellow-700">Cookie-cutter designs</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-yellow-700">No intelligent optimization</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-yellow-700">Poor performance metrics</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-yellow-700">DIY approach with no strategy</span>
+                          </li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
 
-            {/* AI-Powered Solutions */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Card className="h-full bg-gradient-to-br from-green-50 to-blue-50 border-green-200 relative overflow-hidden animate-glow">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-blue-500"></div>
-                <CardContent className="p-8">
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-green-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Brain className="w-8 h-8 text-green-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-blue-700 bg-clip-text text-transparent mb-2">AI-Powered Solutions</h3>
-                    <p className="text-green-600 text-sm font-semibold">Revolutionary & Smart</p>
-                  </div>
-                  
-                  <ul className="space-y-4">
-                    <li className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-green-700 font-medium">Intelligent design automation</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-green-700 font-medium">Data-driven optimization</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-green-700 font-medium">Continuous learning and improvement</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-green-700 font-medium">Predictive analytics integration</span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-green-700 font-medium">Strategic brand architecture</span>
-                    </li>
-                  </ul>
-                  
-                  <div className="mt-8">
-                    <Button 
-                      className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white"
-                      onClick={scrollToContact}
-                    >
-                      <Rocket className="mr-2 h-4 w-4" />
-                      Discover the AI Advantage
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
+                  {/* AI-Powered Solutions */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <Card className="h-full bg-gradient-to-br from-green-50 to-blue-50 border-green-200 relative overflow-hidden animate-glow">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-blue-500"></div>
+                      <CardContent className="p-8">
+                        <div className="text-center mb-6">
+                          <div className="w-16 h-16 bg-gradient-to-r from-green-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Brain className="w-8 h-8 text-green-600" />
+                          </div>
+                          <h3 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-blue-700 bg-clip-text text-transparent mb-2">AI-Powered Solutions</h3>
+                          <p className="text-green-600 text-sm font-semibold">Revolutionary & Smart</p>
+                        </div>
+                        
+                        <ul className="space-y-4">
+                          <li className="flex items-start space-x-3">
+                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-green-700 font-medium">Intelligent design automation</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-green-700 font-medium">Data-driven optimization</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-green-700 font-medium">Continuous learning and improvement</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-green-700 font-medium">Predictive analytics integration</span>
+                          </li>
+                          <li className="flex items-start space-x-3">
+                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-green-700 font-medium">Strategic brand architecture</span>
+                          </li>
+                        </ul>
+                        
+                        <div className="mt-8">
+                          <Button 
+                            className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white"
+                            onClick={scrollToContact}
+                          >
+                            <Rocket className="mr-2 h-4 w-4" />
+                            Discover the AI Advantage
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </div>
+              </div>
+            </section>
       {/* AI in Action Interactive Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -706,7 +702,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ROI Calculator Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-primary/5 to-blue-600/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -825,7 +820,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* AI Success Stories Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -973,7 +967,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Human-AI Collaboration Section */}
       <section className="py-20 bg-gradient-to-br from-muted/20 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1101,7 +1094,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Urgency and Scarcity Section */}
       <section className="py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1225,7 +1217,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Future-Proof Your Business Section */}
       <section className="py-20 bg-gradient-to-br from-background to-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1353,7 +1344,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Why Choose Us */}
       <section id="why-us" className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1393,7 +1383,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Quality Assurance */}
       <section className="py-4 sm:py-8 lg:py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1453,7 +1442,6 @@ export default function Home() {
           </Card>
         </div>
       </section>
-
       {/* Target Audience */}
       <section className="py-4 sm:py-8 lg:py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1487,7 +1475,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Limited Time Offer */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1533,7 +1520,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1715,7 +1701,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 sm:py-10 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1811,7 +1796,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
       {/* Floating WhatsApp Button */}
       <Button
         onClick={handleWhatsApp}
