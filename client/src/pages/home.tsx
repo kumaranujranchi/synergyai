@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import { 
   Rocket, 
   Phone, 
@@ -780,8 +781,44 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-            <p className="text-gray-400">© 2024 Synergy Brand Architect. All rights reserved. | Powered by AI + Human Excellence</p>
+          <div className="border-t border-gray-800 mt-8 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
+                <a 
+                  href="https://synergybrandarchitect.in/privacy-policy" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy Policy
+                </a>
+                <a 
+                  href="https://synergybrandarchitect.in/terms-of-service" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Terms and Conditions
+                </a>
+                <a 
+                  href="https://synergybrandarchitect.in/refund-policy" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Refund Policy
+                </a>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation("/admin-login")}
+                  className="text-gray-400 hover:text-white p-0 h-auto font-normal"
+                >
+                  Admin Login
+                </Button>
+              </div>
+              <p className="text-gray-400 text-sm">© 2024 Synergy Brand Architect. All rights reserved. | Powered by AI + Human Excellence</p>
+            </div>
           </div>
         </div>
       </footer>
