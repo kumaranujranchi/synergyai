@@ -1722,7 +1722,7 @@ export default function Home() {
             {/* Company Info - Full width on mobile, centered */}
             <div className="lg:col-span-2 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start space-x-2 mb-3 sm:mb-4">
-                <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-8 sm:h-10 w-auto brightness-0 invert" />
+                <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-8 sm:h-10 w-auto" />
                 <div className="flex flex-col">
                   <span className="font-bold text-sm sm:text-lg lg:text-xl leading-tight">Synergy Brand Architect</span>
                   <span className="text-xs text-gray-400">AI-Powered Solutions</span>
