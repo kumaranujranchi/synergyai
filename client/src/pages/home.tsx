@@ -203,8 +203,10 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
               <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-8 md:h-10 w-auto" />
-              <span className="font-bold text-lg md:text-xl text-foreground hidden sm:block">Synergy Brand Architect</span>
-              <span className="font-bold text-sm text-foreground sm:hidden">Synergy</span>
+              <div className="flex flex-col">
+                <span className="font-bold text-sm sm:text-lg md:text-xl text-foreground leading-tight">Synergy Brand Architect</span>
+                <span className="text-xs text-muted-foreground hidden sm:block">AI-Powered Solutions</span>
+              </div>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -371,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-12 sm:py-16 lg:py-20 bg-background">
+      <section id="services" className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -417,7 +419,7 @@ export default function Home() {
       </section>
 
       {/* Three-Way Comparison Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-muted/20 to-background">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-muted/20 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1180,17 +1182,26 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center"
           >
-            <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-8 rounded-2xl max-w-4xl mx-auto mb-8">
-              <h3 className="text-3xl font-bold mb-4">🚨 Act Fast - Limited Time Only!</h3>
-              <p className="text-xl mb-6">Join 500+ forward-thinking brands who've already secured their AI advantage</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100 text-lg px-8 py-4 font-bold">
-                  <Rocket className="mr-2 h-5 w-5" />
-                  Secure My AI Consultation Spot
+            <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-4 sm:p-6 lg:p-8 rounded-2xl max-w-4xl mx-auto mb-8">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4">🚨 Act Fast - Limited Time Only!</h3>
+              <p className="text-base sm:text-lg lg:text-xl mb-4 sm:mb-6">Join 500+ forward-thinking brands who've already secured their AI advantage</p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-red-600 hover:bg-gray-100 hover:text-red-700 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 font-bold border-0"
+                  onClick={scrollToContact}
+                >
+                  <Rocket className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                  <span className="text-center">Secure My AI Consultation Spot</span>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-4">
-                  <Clock className="mr-2 h-5 w-5" />
-                  View Remaining Spots
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-red-600 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 transition-all"
+                  onClick={scrollToContact}
+                >
+                  <Clock className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                  <span className="text-center">View Remaining Spots</span>
                 </Button>
               </div>
             </div>
@@ -1692,35 +1703,38 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-10 w-auto brightness-0 invert" />
-                <span className="font-bold text-xl">Synergy Brand Architect</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+              <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+                <img src="https://imagizer.imageshack.com/img924/5789/CC6b4R.png" alt="Synergy Brand Architect Logo" className="h-8 sm:h-10 w-auto brightness-0 invert" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-sm sm:text-lg lg:text-xl leading-tight">Synergy Brand Architect</span>
+                  <span className="text-xs text-gray-400">AI-Powered Solutions</span>
+                </div>
               </div>
-              <p className="text-gray-300 mb-6 max-w-md">India's First AI-Powered Full Stack IT Solution Provider. Delivering websites, mobile apps, and SaaS solutions in hours, not months.</p>
+              <p className="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6 max-w-md">India's First AI-Powered Full Stack IT Solution Provider. Delivering websites, mobile apps, and SaaS solutions in hours, not months.</p>
               
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <div className="w-6 h-6">📘</div>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6">📘</div>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <div className="w-6 h-6">🐦</div>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6">🐦</div>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <div className="w-6 h-6">💼</div>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6">💼</div>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <div className="w-6 h-6">📷</div>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6">📷</div>
                 </a>
               </div>
             </div>
 
-            <div>
-              <h3 className="font-bold text-lg mb-4">Services</h3>
-              <ul className="space-y-2 text-gray-300">
+            <div className="col-span-1">
+              <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">Services</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
                 <li><a href="#" className="hover:text-white transition-colors">Website Development</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Mobile Apps</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">SaaS Platforms</a></li>
@@ -1729,9 +1743,9 @@ export default function Home() {
               </ul>
             </div>
 
-            <div>
-              <h3 className="font-bold text-lg mb-4">Contact</h3>
-              <ul className="space-y-2 text-gray-300">
+            <div className="col-span-1">
+              <h3 className="font-bold text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">Contact</h3>
+              <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
                 <li>+91 9525 230232</li>
                 <li>hello@synergybrandarchitect.in</li>
                 <li>synergybrandarchitect.in</li>
@@ -1739,8 +1753,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
               <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
                 <a 
                   href="https://synergybrandarchitect.in/privacy-policy" 
