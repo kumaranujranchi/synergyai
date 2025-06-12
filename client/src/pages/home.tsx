@@ -1454,18 +1454,19 @@ export default function Home() {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Whether you're a startup or enterprise, we have the right solution for your needs.</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6">
             {targetAudiences.map((audience, index) => (
               <motion.div
                 key={audience.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="h-full"
               >
-                <Card className="bg-background p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
-                  <CardContent className="p-0">
-                    <audience.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <h3 className="font-bold text-foreground">{audience.title}</h3>
+                <Card className="bg-background h-full p-4 sm:p-6 text-center hover:shadow-lg transition-all transform hover:scale-105 flex flex-col">
+                  <CardContent className="p-0 flex flex-col items-center justify-center flex-1 min-h-[120px] sm:min-h-[140px]">
+                    <audience.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2 sm:mb-3 flex-shrink-0" />
+                    <h3 className="font-bold text-foreground text-xs sm:text-sm md:text-base leading-tight text-center">{audience.title}</h3>
                   </CardContent>
                 </Card>
               </motion.div>
