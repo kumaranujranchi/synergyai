@@ -248,11 +248,10 @@ export default function Home() {
             <Zap className="w-14 h-14 text-primary" />
           </div>
           
-          {/* Floating geometric shapes */}
-          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full animate-float"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-16 h-16 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-lg rotate-45 animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/6 w-12 h-12 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
-          <div className="absolute bottom-1/4 right-1/6 w-24 h-24 bg-gradient-to-r from-orange-400/10 to-red-400/10 rounded-full animate-float" style={{ animationDelay: '6s' }}></div>
+          {/* Floating geometric shapes - optimized */}
+          <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-12 h-12 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-lg rotate-45 animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/6 w-10 h-10 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
