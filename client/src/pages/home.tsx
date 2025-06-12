@@ -1382,7 +1382,7 @@ export default function Home() {
       </section>
 
       {/* Quality Assurance */}
-      <section className="py-20 bg-background">
+      <section className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1442,7 +1442,7 @@ export default function Home() {
       </section>
 
       {/* Target Audience */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-8 sm:py-12 lg:py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1521,7 +1521,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-background">
+      <section id="contact" className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1755,7 +1755,7 @@ export default function Home() {
 
           <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8">
             <div className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
-              <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 text-xs sm:text-sm">
                 <a 
                   href="https://synergybrandarchitect.in/privacy-policy" 
                   className="text-gray-400 hover:text-white transition-colors"
@@ -1789,7 +1789,7 @@ export default function Home() {
                   Admin Login
                 </Button>
               </div>
-              <p className="text-gray-400 text-sm">© 2024 Synergy Brand Architect. All rights reserved. | Powered by AI + Human Excellence</p>
+              <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-right">© 2024 Synergy Brand Architect. All rights reserved. | Powered by AI + Human Excellence</p>
             </div>
           </div>
         </div>

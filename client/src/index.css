@@ -196,4 +196,21 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  
+  /* Consistent section spacing on mobile */
+  section {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Remove excessive padding between sections */
+  section + section {
+    border-top: none;
+  }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 641px) {
+  section {
+    margin-bottom: 0;
+  }
 }
