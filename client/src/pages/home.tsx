@@ -257,7 +257,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-4 sm:pb-8 lg:pb-10 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-2 sm:pb-4 lg:pb-6 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
         {/* Interactive Background */}
         <InteractiveBackground />
         
@@ -374,7 +374,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-4 sm:py-8 lg:py-12 bg-background">
+      <section id="services" className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -423,7 +423,7 @@ export default function Home() {
       </section>
 
       {/* Three-Way Comparison Section */}
-      <section className="py-4 sm:py-8 lg:py-12 bg-gradient-to-br from-muted/20 to-background">
+<section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-muted/20 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -582,7 +582,7 @@ export default function Home() {
       </section>
 
       {/* AI in Action Interactive Section */}
-      <section className="py-20 bg-background">
+      <section className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -708,7 +708,7 @@ export default function Home() {
       </section>
 
       {/* ROI Calculator Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-blue-600/5">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-primary/5 to-blue-600/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -827,7 +827,7 @@ export default function Home() {
       </section>
 
       {/* AI Success Stories Section */}
-      <section className="py-20 bg-background">
+      <section className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1489,7 +1489,7 @@ export default function Home() {
       </section>
 
       {/* Limited Time Offer */}
-      <section className="py-20 bg-gradient-to-r from-primary to-blue-600">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1535,7 +1535,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-4 sm:py-8 lg:py-12 bg-background">
+      <section id="contact" className="py-8 sm:py-12 lg:py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
