@@ -372,7 +372,7 @@ export default function Home() {
         </div>
       </section>
       {/* Services Section */}
-      <section id="services" className="py-8 sm:py-12 lg:py-16 bg-background">
+      <section id="services" className="pt-12 pb-8 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -1202,7 +1202,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-gray-900 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 transition-all"
+                  className="border-2 border-white text-gray-900 bg-white hover:bg-gray-100 hover:text-gray-900 text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 transition-all"
                   onClick={scrollToContact}
                 >
                   <Clock className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
