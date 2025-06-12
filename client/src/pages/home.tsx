@@ -10,6 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
+import InteractiveBackground from "@/components/InteractiveBackground";
 import { 
   Rocket, 
   Phone, 
@@ -231,16 +232,27 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-background via-muted/20 to-background">
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 animate-pulse opacity-30">
-          <Brain className="w-16 h-16 text-primary" />
-        </div>
-        <div className="absolute top-40 right-20 animate-bounce opacity-20">
-          <Code className="w-12 h-12 text-secondary" />
-        </div>
-        <div className="absolute bottom-40 left-20 animate-pulse opacity-25">
-          <Zap className="w-14 h-14 text-primary" />
+      <section className="relative min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+        {/* Interactive Background */}
+        <InteractiveBackground />
+        
+        {/* Animated geometric shapes */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 animate-pulse opacity-30">
+            <Brain className="w-16 h-16 text-primary" />
+          </div>
+          <div className="absolute top-40 right-20 animate-bounce opacity-20">
+            <Code className="w-12 h-12 text-secondary" />
+          </div>
+          <div className="absolute bottom-40 left-20 animate-pulse opacity-25">
+            <Zap className="w-14 h-14 text-primary" />
+          </div>
+          
+          {/* Floating geometric shapes */}
+          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full animate-float"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-16 h-16 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-lg rotate-45 animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/6 w-12 h-12 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute bottom-1/4 right-1/6 w-24 h-24 bg-gradient-to-r from-orange-400/10 to-red-400/10 rounded-full animate-float" style={{ animationDelay: '6s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -290,31 +302,31 @@ export default function Home() {
               </Button>
             </div>
 
-            <Card className="backdrop-blur-md bg-background/75 max-w-5xl mx-auto">
+            <Card className="backdrop-blur-md bg-background/75 max-w-5xl mx-auto border border-primary/20 animate-glow">
               <CardContent className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm">
-                  <div className="flex items-center space-x-2">
-                    <Zap className="h-4 w-4 text-yellow-500" />
+                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
+                    <Zap className="h-4 w-4 text-yellow-500 group-hover:animate-pulse" />
                     <span className="font-medium">2 Hour Delivery</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <DollarSign className="h-4 w-4 text-green-500" />
+                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
+                    <DollarSign className="h-4 w-4 text-green-500 group-hover:animate-pulse" />
                     <span className="font-medium">Lowest Pricing</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Shield className="h-4 w-4 text-blue-500" />
+                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
+                    <Shield className="h-4 w-4 text-blue-500 group-hover:animate-pulse" />
                     <span className="font-medium">Bug-Free Code</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-purple-500" />
+                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
+                    <CheckCircle className="h-4 w-4 text-purple-500 group-hover:animate-pulse" />
                     <span className="font-medium">Human Verified</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <RotateCcw className="h-4 w-4 text-cyan-500" />
+                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
+                    <RotateCcw className="h-4 w-4 text-cyan-500 group-hover:animate-pulse" />
                     <span className="font-medium">Free CI/CD</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Award className="h-4 w-4 text-orange-500" />
+                  <div className="flex items-center space-x-2 group hover:scale-105 transition-transform">
+                    <Award className="h-4 w-4 text-orange-500 group-hover:animate-pulse" />
                     <span className="font-medium">Transparent</span>
                   </div>
                 </div>
