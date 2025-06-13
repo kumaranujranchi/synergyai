@@ -334,7 +334,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <Card className="backdrop-blur-md bg-background/75 max-w-5xl mx-auto border border-primary/20 mt-8">
+            <Card className="rounded-lg border text-card-foreground shadow-sm p-8 bg-background border-primary/20 mt-[100px] mb-[100px] backdrop-blur-md max-w-5xl mx-auto"></Card>
               <CardContent className="p-4 sm:p-6">
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-xs sm:text-sm">
                   <div className="flex items-center space-x-1 sm:space-x-2 group hover:scale-105 transition-transform">
