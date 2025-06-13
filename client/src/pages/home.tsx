@@ -723,7 +723,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="p-8 bg-background border-primary/20">
+              <Card className="p-8 bg-background border-primary/20 mt-[100px] mb-[100px]">
                 <h3 className="text-2xl font-bold text-foreground mb-6">AI ROI Calculator</h3>
                 
                 <div className="space-y-6">
@@ -1791,7 +1791,7 @@ export default function Home() {
                   Admin Login
                 </Button>
               </div>
-              <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-right">© 2024 Synergy Brand Architect. All rights reserved. | Powered by AI + Human Excellence</p>
+              <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-right">© 2025 Synergy Brand Architect. All rights reserved. | Powered by AI + Human Excellence</p>
             </div>
           </div>
         </div>
