@@ -216,14 +216,21 @@ exports.handler = async (event, context) => {
       JSON.parse(event.body)
     );
 
+    // Check if email credentials are configured
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      throw new Error(
+        "Email credentials not configured. Please set EMAIL_USER and EMAIL_PASS environment variables."
+      );
+    }
+
     // Setup Nodemailer transporter for Google Workspace
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
       auth: {
-        user: process.env.EMAIL_USER || "anuj@synergybrandarchitect.in",
-        pass: process.env.EMAIL_PASS || "toeocmeifezbssin",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
       tls: {
         ciphers: "SSLv3",

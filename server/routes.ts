@@ -160,14 +160,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertContactSubmissionSchema.parse(req.body);
 
+      // Check if email credentials are configured
+      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        throw new Error('Email credentials not configured. Please set EMAIL_USER and EMAIL_PASS environment variables.');
+      }
+
       // Setup Nodemailer transporter for Google Workspace
       const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: "anuj@synergybrandarchitect.in",
-          pass: "toeocmeifezbssin"
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS
         },
         tls: {
           ciphers: 'SSLv3'
