@@ -216,41 +216,15 @@ exports.handler = async (event, context) => {
       JSON.parse(event.body)
     );
 
-    // Check if email credentials are configured
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error("Email credentials not found in environment variables");
-      console.error("Available env vars:", Object.keys(process.env));
+    // Use environment variables or fallback to hardcoded (temporary)
+    const emailUser = process.env.EMAIL_USER || "anuj@synergybrandarchitect.in";
+    const emailPass = process.env.EMAIL_PASS || "toeocmeifezbssin";
 
-      // Log the submission for manual follow-up
-      console.log(
-        "CONTACT FORM SUBMISSION (EMAIL FAILED):",
-        JSON.stringify(
-          {
-            timestamp: new Date().toISOString(),
-            name: validatedData.fullName,
-            email: validatedData.email,
-            phone: validatedData.phone,
-            service: validatedData.service,
-            details: validatedData.projectDetails,
-            budget: validatedData.budgetRange,
-          },
-          null,
-          2
-        )
-      );
-
-      // Return success to user but with fallback message
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({
-          success: true,
-          message:
-            "Thank you for your inquiry! We've received your request and will contact you within 2 hours via phone or WhatsApp.",
-          fallback: true,
-        }),
-      };
-    }
+    console.log("Email configuration:", {
+      user: emailUser ? "SET" : "NOT SET",
+      pass: emailPass ? "SET" : "NOT SET",
+      envVarsAvailable: Object.keys(process.env).length,
+    });
 
     // Setup Nodemailer transporter for Google Workspace
     const transporter = nodemailer.createTransport({
@@ -258,8 +232,8 @@ exports.handler = async (event, context) => {
       port: 587,
       secure: false,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: emailUser,
+        pass: emailPass,
       },
       tls: {
         ciphers: "SSLv3",
@@ -274,11 +248,11 @@ exports.handler = async (event, context) => {
     try {
       await transporter.sendMail({
         from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
-        to: "anuj@synergybrandarchitect.in",
+        to: "kumaranujranchi@gmail.com", // Updated to correct email
         subject: `🚀 URGENT: New ${validatedData.service} Inquiry from ${validatedData.fullName}`,
         html: adminHtml,
       });
-      console.log("Admin email sent successfully");
+      console.log("Admin email sent successfully to kumaranujranchi@gmail.com");
     } catch (emailError) {
       console.error("Failed to send admin email:", emailError);
       // Continue to try user email even if admin email fails
