@@ -513,15 +513,49 @@ exports.handler = async (event, context) => {
       JSON.parse(event.body)
     );
 
-    // Use environment variables or fallback to hardcoded (temporary)
-    const emailUser = process.env.EMAIL_USER || "anuj@synergybrandarchitect.in";
-    const emailPass = process.env.EMAIL_PASS || "toeocmeifezbssin";
+    // Use environment variables only (secure)
+    const emailUser = process.env.EMAIL_USER;
+    const emailPass = process.env.EMAIL_PASS;
 
     console.log("Email configuration:", {
       user: emailUser ? "SET" : "NOT SET",
       pass: emailPass ? "SET" : "NOT SET",
       envVarsAvailable: Object.keys(process.env).length,
     });
+
+    // Check if credentials are available
+    if (!emailUser || !emailPass) {
+      console.error("Email credentials missing from environment variables");
+
+      // Log submission for manual follow-up
+      console.log(
+        "CONTACT FORM SUBMISSION (EMAIL FAILED):",
+        JSON.stringify(
+          {
+            timestamp: new Date().toISOString(),
+            name: validatedData.fullName,
+            email: validatedData.email,
+            phone: validatedData.phone,
+            service: validatedData.service,
+            details: validatedData.projectDetails,
+            budget: validatedData.budgetRange,
+          },
+          null,
+          2
+        )
+      );
+
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          success: true,
+          message:
+            "Thank you for your inquiry! We've received your request and will contact you within 2 hours via phone or WhatsApp.",
+          fallback: true,
+        }),
+      };
+    }
 
     // Setup Nodemailer transporter for Google Workspace
     const transporter = nodemailer.createTransport({
