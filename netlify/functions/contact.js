@@ -217,7 +217,7 @@ exports.handler = async (event, context) => {
     );
 
     // Setup Nodemailer transporter for Google Workspace
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
