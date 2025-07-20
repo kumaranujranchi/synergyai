@@ -1,10 +1,18 @@
-import type { Express } from "express";
-import { createServer, type Server } from "http";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 
+// Contact form validation schema
+const insertContactSubmissionSchema = z.object({
+  fullName: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().min(1),
+  service: z.string().min(1),
+  projectDetails: z.string().min(1),
+  budgetRange: z.string().optional(),
+});
+
 // Email template functions
-function getAdminEmailTemplate(data: any): string {
+function getAdminEmailTemplate(data) {
   return `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
       <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center;">
@@ -14,7 +22,7 @@ function getAdminEmailTemplate(data: any): string {
       </div>
       <div style="padding: 30px;">
         <p>A new contact form submission has been received from your website:</p>
-
+        
         <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">👤 Name:</div>
@@ -41,13 +49,13 @@ function getAdminEmailTemplate(data: any): string {
             <div style="color: #6c757d; flex: 1; word-break: break-word;">${data.projectDetails}</div>
           </div>
         </div>
-
+        
         <div style="background-color: #e8f5e8; border-left: 4px solid #28a745; padding: 15px; margin: 20px 0;">
           <h3 style="margin: 0 0 10px 0; color: #155724;">⚡ Quick Actions:</h3>
           <p style="margin: 5px 0;"><a href="mailto:${data.email}?subject=Re: Your ${data.service} Inquiry&body=Dear ${data.fullName},%0D%0A%0D%0AThank you for your interest in our ${data.service} services..." style="color: #28a745; text-decoration: none; font-weight: 600;">📧 Reply to Customer</a></p>
           <p style="margin: 5px 0;"><a href="https://wa.me/${data.phone.replace(/[^0-9]/g, '')}?text=Hi ${data.fullName}, thank you for your inquiry about ${data.service}. I'm Anuj from Synergy Brand Architect..." style="color: #25d366; text-decoration: none; font-weight: 600;">💬 WhatsApp Customer</a></p>
         </div>
-
+        
         <div style="background-color: #e3f2fd; padding: 10px; border-radius: 5px; margin-top: 20px; text-align: center; color: #1976d2;">
           ⏰ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
         </div>
@@ -60,7 +68,7 @@ function getAdminEmailTemplate(data: any): string {
   `;
 }
 
-function getUserEmailTemplate(data: any): string {
+function getUserEmailTemplate(data) {
   return `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
       <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center;">
@@ -72,12 +80,12 @@ function getUserEmailTemplate(data: any): string {
           <h2>Dear ${data.fullName},</h2>
           <p>We have received your inquiry and our expert team will get back to you soon with a detailed quote and consultation.</p>
         </div>
-
+        
         <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); border-radius: 8px; padding: 15px; margin: 15px 0; text-align: center;">
           <h3 style="margin: 0; color: #d63031;">⚡ PRIORITY RESPONSE GUARANTEED</h3>
           <p style="margin: 5px 0 0 0; color: #2d3436;">Our team will contact you within <strong>2 hours</strong> during business hours!</p>
         </div>
-
+        
         <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
           <h3>📋 Your Submission Summary:</h3>
           <div style="display: flex; margin-bottom: 12px;">
@@ -97,7 +105,7 @@ function getUserEmailTemplate(data: any): string {
             <div style="color: #6c757d; flex: 1;">${data.budgetRange || 'To be discussed'}</div>
           </div>
         </div>
-
+        
         <div style="background-color: #e8f5e8; border-left: 4px solid #28a745; padding: 20px; margin: 20px 0;">
           <h3>⏰ What Happens Next?</h3>
           <ul style="margin: 10px 0; padding-left: 20px;">
@@ -107,18 +115,18 @@ function getUserEmailTemplate(data: any): string {
             <li><strong>Custom proposal:</strong> Tailored solution with AI-powered features</li>
           </ul>
         </div>
-
+        
         <div style="background-color: #fff3cd; border-radius: 8px; padding: 20px; margin: 20px 0;">
           <h3>📞 Need Immediate Assistance?</h3>
           <p style="margin: 5px 0;"><strong>📱 Phone:</strong> <a href="tel:+919525230232" style="color: #667eea; text-decoration: none;">+91 9525 230232</a></p>
           <p style="margin: 5px 0;"><strong>📧 Email:</strong> <a href="mailto:anuj@synergybrandarchitect.in" style="color: #667eea; text-decoration: none;">anuj@synergybrandarchitect.in</a></p>
           <p style="margin: 5px 0;"><strong>🌐 Website:</strong> <a href="https://synergybrandarchitect.in" style="color: #667eea; text-decoration: none;">synergybrandarchitect.in</a></p>
-
+          
           <div style="text-align: center; margin-top: 15px;">
             <a href="https://wa.me/919525230232?text=Hi, I just submitted a contact form for ${data.service}. Looking forward to discussing my project!" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 10px 0; font-weight: 600;">💬 WhatsApp Now</a>
           </div>
         </div>
-
+        
         <div style="background-color: #e3f2fd; border-radius: 8px; padding: 15px; margin: 20px 0; text-align: center;">
           <h3 style="margin: 0 0 10px 0; color: #1976d2;">🎯 Why Choose Synergy Brand Architect?</h3>
           <p style="margin: 5px 0; color: #424242;">✅ India's First AI-Powered IT Solutions</p>
@@ -126,7 +134,7 @@ function getUserEmailTemplate(data: any): string {
           <p style="margin: 5px 0; color: #424242;">✅ 24/7 Support & Maintenance</p>
           <p style="margin: 5px 0; color: #424242;">✅ Cutting-Edge Technology Stack</p>
         </div>
-
+        
         <div style="text-align: center; margin: 20px 0;">
           <p>Follow us for updates and AI insights:</p>
           <a href="#" style="display: inline-block; margin: 0 10px; color: #667eea; text-decoration: none; font-size: 18px;">📘 Facebook</a>
@@ -144,81 +152,94 @@ function getUserEmailTemplate(data: any): string {
   `;
 }
 
-// Contact form validation schema (copied from previous shared/schema)
-const insertContactSubmissionSchema = z.object({
-  fullName: z.string().min(1),
-  email: z.string().email(),
-  phone: z.string().min(1),
-  service: z.string().min(1),
-  projectDetails: z.string().min(1),
-  budgetRange: z.string().optional(),
-});
+export const handler = async (event, context) => {
+  // Handle CORS
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  };
 
-export async function registerRoutes(app: Express): Promise<Server> {
-  // Contact form submission (to be replaced with email logic)
-  app.post("/api/contact", async (req: import("express").Request, res: import("express").Response) => {
-    try {
-      const validatedData = insertContactSubmissionSchema.parse(req.body);
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: '',
+    };
+  }
 
-      // Setup Nodemailer transporter for Google Workspace
-      const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-          user: "anuj@synergybrandarchitect.in",
-          pass: "toeocmeifezbssin"
-        },
-        tls: {
-          ciphers: 'SSLv3'
-        }
-      });
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({ success: false, message: 'Method not allowed' }),
+    };
+  }
 
-      // Generate email templates
-      const adminHtml = getAdminEmailTemplate(validatedData);
+  try {
+    const validatedData = insertContactSubmissionSchema.parse(JSON.parse(event.body));
 
-      const userHtml = getUserEmailTemplate(validatedData);
+    // Setup Nodemailer transporter for Google Workspace
+    const transporter = nodemailer.createTransporter({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_USER || "anuj@synergybrandarchitect.in",
+        pass: process.env.EMAIL_PASS || "toeocmeifezbssin"
+      },
+      tls: {
+        ciphers: 'SSLv3'
+      }
+    });
 
-      // Send notification to admin
-      await transporter.sendMail({
-        from: 'Synergy Brand Architect <anuj@synergybrandarchitect.in>',
-        to: 'anuj@synergybrandarchitect.in',
-        subject: `🚀 URGENT: New ${validatedData.service} Inquiry from ${validatedData.fullName}`,
-        html: adminHtml
-      });
+    // Generate email templates
+    const adminHtml = getAdminEmailTemplate(validatedData);
+    const userHtml = getUserEmailTemplate(validatedData);
 
-      // Send confirmation to user
-      await transporter.sendMail({
-        from: 'Synergy Brand Architect <anuj@synergybrandarchitect.in>',
-        to: validatedData.email,
-        subject: '🚀 Thank You for Contacting Synergy Brand Architect - Response Within 2 Hours!',
-        html: userHtml
-      });
+    // Send notification to admin
+    await transporter.sendMail({
+      from: 'Synergy Brand Architect <anuj@synergybrandarchitect.in>',
+      to: 'anuj@synergybrandarchitect.in',
+      subject: `🚀 URGENT: New ${validatedData.service} Inquiry from ${validatedData.fullName}`,
+      html: adminHtml
+    });
 
-      res.json({ success: true });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        res.status(400).json({ 
+    // Send confirmation to user
+    await transporter.sendMail({
+      from: 'Synergy Brand Architect <anuj@synergybrandarchitect.in>',
+      to: validatedData.email,
+      subject: '🚀 Thank You for Contacting Synergy Brand Architect - Response Within 2 Hours!',
+      html: userHtml
+    });
+
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ success: true }),
+    };
+  } catch (error) {
+    console.error('Contact form error:', error);
+    
+    if (error.name === 'ZodError') {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ 
           success: false, 
           message: "Invalid form data", 
           errors: error.errors 
-        });
-      } else if (error instanceof Error) {
-        console.error("Contact form error:", error);
-        res.status(500).json({
-          success: false,
-          message: "Failed to submit contact form: " + error.message
-        });
-      } else {
-        console.error("Contact form unknown error:", error);
-        res.status(500).json({
-          success: false,
-          message: "Failed to submit contact form"
-        });
-      }
+        }),
+      };
     }
-  });
-
-  const httpServer = createServer(app);
-  return httpServer;
-}
+    
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({
+        success: false,
+        message: "Failed to submit contact form: " + error.message
+      }),
+    };
+  }
+};
