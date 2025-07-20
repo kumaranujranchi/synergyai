@@ -218,9 +218,38 @@ exports.handler = async (event, context) => {
 
     // Check if email credentials are configured
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      throw new Error(
-        "Email credentials not configured. Please set EMAIL_USER and EMAIL_PASS environment variables."
+      console.error("Email credentials not found in environment variables");
+      console.error("Available env vars:", Object.keys(process.env));
+
+      // Log the submission for manual follow-up
+      console.log(
+        "CONTACT FORM SUBMISSION (EMAIL FAILED):",
+        JSON.stringify(
+          {
+            timestamp: new Date().toISOString(),
+            name: validatedData.fullName,
+            email: validatedData.email,
+            phone: validatedData.phone,
+            service: validatedData.service,
+            details: validatedData.projectDetails,
+            budget: validatedData.budgetRange,
+          },
+          null,
+          2
+        )
       );
+
+      // Return success to user but with fallback message
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+          success: true,
+          message:
+            "Thank you for your inquiry! We've received your request and will contact you within 2 hours via phone or WhatsApp.",
+          fallback: true,
+        }),
+      };
     }
 
     // Setup Nodemailer transporter for Google Workspace
@@ -242,21 +271,33 @@ exports.handler = async (event, context) => {
     const userHtml = getUserEmailTemplate(validatedData);
 
     // Send notification to admin
-    await transporter.sendMail({
-      from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
-      to: "anuj@synergybrandarchitect.in",
-      subject: `🚀 URGENT: New ${validatedData.service} Inquiry from ${validatedData.fullName}`,
-      html: adminHtml,
-    });
+    try {
+      await transporter.sendMail({
+        from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
+        to: "anuj@synergybrandarchitect.in",
+        subject: `🚀 URGENT: New ${validatedData.service} Inquiry from ${validatedData.fullName}`,
+        html: adminHtml,
+      });
+      console.log("Admin email sent successfully");
+    } catch (emailError) {
+      console.error("Failed to send admin email:", emailError);
+      // Continue to try user email even if admin email fails
+    }
 
     // Send confirmation to user
-    await transporter.sendMail({
-      from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
-      to: validatedData.email,
-      subject:
-        "🚀 Thank You for Contacting Synergy Brand Architect - Response Within 2 Hours!",
-      html: userHtml,
-    });
+    try {
+      await transporter.sendMail({
+        from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
+        to: validatedData.email,
+        subject:
+          "🚀 Thank You for Contacting Synergy Brand Architect - Response Within 2 Hours!",
+        html: userHtml,
+      });
+      console.log("User email sent successfully");
+    } catch (emailError) {
+      console.error("Failed to send user email:", emailError);
+      // Continue to return success even if user email fails
+    }
 
     return {
       statusCode: 200,
