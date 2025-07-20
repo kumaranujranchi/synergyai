@@ -144,7 +144,9 @@ export default function Home() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      return apiRequest("POST", "/api/contact", data);
+      // Use Netlify Functions endpoint for production, fallback to local API for development
+      const endpoint = window.location.hostname === 'localhost' ? "/api/contact" : "/.netlify/functions/contact";
+      return apiRequest("POST", endpoint, data);
     },
     onSuccess: () => {
       toast({

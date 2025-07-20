@@ -1,5 +1,5 @@
-import { z } from "zod";
-import nodemailer from "nodemailer";
+const { z } = require("zod");
+const nodemailer = require("nodemailer");
 
 // Contact form validation schema
 const insertContactSubmissionSchema = z.object({
@@ -26,38 +26,67 @@ function getAdminEmailTemplate(data) {
         <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">👤 Name:</div>
-            <div style="color: #6c757d; flex: 1; word-break: break-word;">${data.fullName}</div>
+            <div style="color: #6c757d; flex: 1; word-break: break-word;">${
+              data.fullName
+            }</div>
           </div>
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">📧 Email:</div>
-            <div style="color: #6c757d; flex: 1; word-break: break-word;"><a href="mailto:${data.email}" style="color: #667eea; text-decoration: none;">${data.email}</a></div>
+            <div style="color: #6c757d; flex: 1; word-break: break-word;"><a href="mailto:${
+              data.email
+            }" style="color: #667eea; text-decoration: none;">${
+    data.email
+  }</a></div>
           </div>
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">📱 Phone:</div>
-            <div style="color: #6c757d; flex: 1; word-break: break-word;"><a href="tel:${data.phone}" style="color: #667eea; text-decoration: none;">${data.phone}</a></div>
+            <div style="color: #6c757d; flex: 1; word-break: break-word;"><a href="tel:${
+              data.phone
+            }" style="color: #667eea; text-decoration: none;">${
+    data.phone
+  }</a></div>
           </div>
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">🛠️ Service:</div>
-            <div style="color: #6c757d; flex: 1; word-break: break-word;"><strong>${data.service}</strong></div>
+            <div style="color: #6c757d; flex: 1; word-break: break-word;"><strong>${
+              data.service
+            }</strong></div>
           </div>
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">💰 Budget:</div>
-            <div style="color: #6c757d; flex: 1; word-break: break-word;">${data.budgetRange || 'Not specified'}</div>
+            <div style="color: #6c757d; flex: 1; word-break: break-word;">${
+              data.budgetRange || "Not specified"
+            }</div>
           </div>
           <div style="display: flex; margin-bottom: 15px; border-bottom: 1px solid #e9ecef; padding-bottom: 10px;">
             <div style="font-weight: 600; color: #495057; min-width: 120px;">📝 Details:</div>
-            <div style="color: #6c757d; flex: 1; word-break: break-word;">${data.projectDetails}</div>
+            <div style="color: #6c757d; flex: 1; word-break: break-word;">${
+              data.projectDetails
+            }</div>
           </div>
         </div>
         
         <div style="background-color: #e8f5e8; border-left: 4px solid #28a745; padding: 15px; margin: 20px 0;">
           <h3 style="margin: 0 0 10px 0; color: #155724;">⚡ Quick Actions:</h3>
-          <p style="margin: 5px 0;"><a href="mailto:${data.email}?subject=Re: Your ${data.service} Inquiry&body=Dear ${data.fullName},%0D%0A%0D%0AThank you for your interest in our ${data.service} services..." style="color: #28a745; text-decoration: none; font-weight: 600;">📧 Reply to Customer</a></p>
-          <p style="margin: 5px 0;"><a href="https://wa.me/${data.phone.replace(/[^0-9]/g, '')}?text=Hi ${data.fullName}, thank you for your inquiry about ${data.service}. I'm Anuj from Synergy Brand Architect..." style="color: #25d366; text-decoration: none; font-weight: 600;">💬 WhatsApp Customer</a></p>
+          <p style="margin: 5px 0;"><a href="mailto:${
+            data.email
+          }?subject=Re: Your ${data.service} Inquiry&body=Dear ${
+    data.fullName
+  },%0D%0A%0D%0AThank you for your interest in our ${
+    data.service
+  } services..." style="color: #28a745; text-decoration: none; font-weight: 600;">📧 Reply to Customer</a></p>
+          <p style="margin: 5px 0;"><a href="https://wa.me/${data.phone.replace(
+            /[^0-9]/g,
+            ""
+          )}?text=Hi ${data.fullName}, thank you for your inquiry about ${
+    data.service
+  }. I'm Anuj from Synergy Brand Architect..." style="color: #25d366; text-decoration: none; font-weight: 600;">💬 WhatsApp Customer</a></p>
         </div>
         
         <div style="background-color: #e3f2fd; padding: 10px; border-radius: 5px; margin-top: 20px; text-align: center; color: #1976d2;">
-          ⏰ Submitted at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+          ⏰ Submitted at: ${new Date().toLocaleString("en-IN", {
+            timeZone: "Asia/Kolkata",
+          })}
         </div>
       </div>
       <div style="background-color: #f8f9fa; padding: 20px; text-align: center; color: #6c757d; font-size: 14px;">
@@ -98,11 +127,15 @@ function getUserEmailTemplate(data) {
           </div>
           <div style="display: flex; margin-bottom: 12px;">
             <div style="font-weight: 600; color: #495057; min-width: 100px;">🛠️ Service:</div>
-            <div style="color: #6c757d; flex: 1;"><strong>${data.service}</strong></div>
+            <div style="color: #6c757d; flex: 1;"><strong>${
+              data.service
+            }</strong></div>
           </div>
           <div style="display: flex; margin-bottom: 12px;">
             <div style="font-weight: 600; color: #495057; min-width: 100px;">💰 Budget:</div>
-            <div style="color: #6c757d; flex: 1;">${data.budgetRange || 'To be discussed'}</div>
+            <div style="color: #6c757d; flex: 1;">${
+              data.budgetRange || "To be discussed"
+            }</div>
           </div>
         </div>
         
@@ -123,7 +156,9 @@ function getUserEmailTemplate(data) {
           <p style="margin: 5px 0;"><strong>🌐 Website:</strong> <a href="https://synergybrandarchitect.in" style="color: #667eea; text-decoration: none;">synergybrandarchitect.in</a></p>
           
           <div style="text-align: center; margin-top: 15px;">
-            <a href="https://wa.me/919525230232?text=Hi, I just submitted a contact form for ${data.service}. Looking forward to discussing my project!" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 10px 0; font-weight: 600;">💬 WhatsApp Now</a>
+            <a href="https://wa.me/919525230232?text=Hi, I just submitted a contact form for ${
+              data.service
+            }. Looking forward to discussing my project!" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 10px 0; font-weight: 600;">💬 WhatsApp Now</a>
           </div>
         </div>
         
@@ -152,32 +187,34 @@ function getUserEmailTemplate(data) {
   `;
 }
 
-export const handler = async (event, context) => {
+exports.handler = async (event, context) => {
   // Handle CORS
   const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
   };
 
-  if (event.httpMethod === 'OPTIONS') {
+  if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers,
-      body: '',
+      body: "",
     };
   }
 
-  if (event.httpMethod !== 'POST') {
+  if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
       headers,
-      body: JSON.stringify({ success: false, message: 'Method not allowed' }),
+      body: JSON.stringify({ success: false, message: "Method not allowed" }),
     };
   }
 
   try {
-    const validatedData = insertContactSubmissionSchema.parse(JSON.parse(event.body));
+    const validatedData = insertContactSubmissionSchema.parse(
+      JSON.parse(event.body)
+    );
 
     // Setup Nodemailer transporter for Google Workspace
     const transporter = nodemailer.createTransporter({
@@ -186,11 +223,11 @@ export const handler = async (event, context) => {
       secure: false,
       auth: {
         user: process.env.EMAIL_USER || "anuj@synergybrandarchitect.in",
-        pass: process.env.EMAIL_PASS || "toeocmeifezbssin"
+        pass: process.env.EMAIL_PASS || "toeocmeifezbssin",
       },
       tls: {
-        ciphers: 'SSLv3'
-      }
+        ciphers: "SSLv3",
+      },
     });
 
     // Generate email templates
@@ -199,18 +236,19 @@ export const handler = async (event, context) => {
 
     // Send notification to admin
     await transporter.sendMail({
-      from: 'Synergy Brand Architect <anuj@synergybrandarchitect.in>',
-      to: 'anuj@synergybrandarchitect.in',
+      from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
+      to: "anuj@synergybrandarchitect.in",
       subject: `🚀 URGENT: New ${validatedData.service} Inquiry from ${validatedData.fullName}`,
-      html: adminHtml
+      html: adminHtml,
     });
 
     // Send confirmation to user
     await transporter.sendMail({
-      from: 'Synergy Brand Architect <anuj@synergybrandarchitect.in>',
+      from: "Synergy Brand Architect <anuj@synergybrandarchitect.in>",
       to: validatedData.email,
-      subject: '🚀 Thank You for Contacting Synergy Brand Architect - Response Within 2 Hours!',
-      html: userHtml
+      subject:
+        "🚀 Thank You for Contacting Synergy Brand Architect - Response Within 2 Hours!",
+      html: userHtml,
     });
 
     return {
@@ -219,26 +257,26 @@ export const handler = async (event, context) => {
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
-    console.error('Contact form error:', error);
-    
-    if (error.name === 'ZodError') {
+    console.error("Contact form error:", error);
+
+    if (error.name === "ZodError") {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ 
-          success: false, 
-          message: "Invalid form data", 
-          errors: error.errors 
+        body: JSON.stringify({
+          success: false,
+          message: "Invalid form data",
+          errors: error.errors,
         }),
       };
     }
-    
+
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
         success: false,
-        message: "Failed to submit contact form: " + error.message
+        message: "Failed to submit contact form: " + error.message,
       }),
     };
   }
